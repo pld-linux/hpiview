@@ -1,12 +1,14 @@
 Summary:	hpiview - GTK+ Front end client for OpenHPI (HPI)
 Summary(pl):	hpiview - interfejs kliencki GTK+ dla OpenHPI
 Name:		hpiview
-Version:	0.5
+Version:	0.6
 Release:	1
 License:	BSD
 Group:		Applications
 Source0:	http://dl.sourceforge.net/openhpi/%{name}-%{version}.tar.gz
-# Source0-md5:	cfdcbe414d6ed8ab7b8ff3d754adcdd3
+# Source0-md5:	1a9504c1db015833e87dc99e77567fde
+# from CVS - missing in tarball
+Source1:	%{name}-voh_types.h
 URL:		http://openhpi.sourceforge.net/
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	openhpi-devel
@@ -22,6 +24,7 @@ OpenHPI.
 
 %prep
 %setup -q
+cp %{SOURCE1} hpiview/voh_types.h
 
 %build
 CPPFLAGS="-I/usr/include/openhpi"
