@@ -1,18 +1,16 @@
 Summary:	hpiview - GTK+ Front end client for OpenHPI (HPI)
 Summary(pl):	hpiview - interfejs kliencki GTK+ dla OpenHPI
 Name:		hpiview
-Version:	0.6
+Version:	2.0
 Release:	1
 License:	BSD
 Group:		Applications
 Source0:	http://dl.sourceforge.net/openhpi/%{name}-%{version}.tar.gz
-# Source0-md5:	1a9504c1db015833e87dc99e77567fde
-# from CVS - missing in tarball
-Source1:	%{name}-voh_types.h
+# Source0-md5:	32c06f96e4f22d22754de7c2f912f76a
 URL:		http://openhpi.sourceforge.net/
-BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	openhpi-devel
-BuildRequires:	pkgconfig
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	openhpi-devel >= 2.0.0
+BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -24,10 +22,8 @@ OpenHPI.
 
 %prep
 %setup -q
-cp %{SOURCE1} hpiview/voh_types.h
 
 %build
-CPPFLAGS="-I/usr/include/openhpi"
 %configure
 %{__make}
 
@@ -37,11 +33,11 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS
 %attr(755,root,root) %{_bindir}/hpiview
 %{_datadir}/hpiview
-
-%clean
-rm -rf $RPM_BUILD_ROOT
