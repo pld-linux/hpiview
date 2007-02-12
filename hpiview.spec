@@ -1,5 +1,5 @@
 Summary:	hpiview - GTK+ Front end client for OpenHPI (HPI)
-Summary(pl):	hpiview - interfejs kliencki GTK+ dla OpenHPI
+Summary(pl.UTF-8):   hpiview - interfejs kliencki GTK+ dla OpenHPI
 Name:		hpiview
 Version:	2.0
 Release:	1
@@ -16,8 +16,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This is a GTK+ based GUI developed as part of OpenHPI.
 
-%description -l pl
-Ten pakiet zawiera graficzny interfejs GTK+ tworzony jako czê¶æ
+%description -l pl.UTF-8
+Ten pakiet zawiera graficzny interfejs GTK+ tworzony jako czÄ™Å›Ä‡
 OpenHPI.
 
 %prep
